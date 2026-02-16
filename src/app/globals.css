@@ -525,3 +525,24 @@ html.lenis, html.lenis body {
     opacity: 1;
   }
 }
+
+.shimmer {
+  -webkit-mask-image: linear-gradient(
+    -75deg,
+    rgba(0, 0, 0, 0.6) 30%,
+    #000 50%,
+    rgba(0, 0, 0, 0.6) 70%
+  );
+  -webkit-mask-size: 200%;
+  -webkit-animation: shimmer 2s infinite;
+  animation: shimmer 2s infinite;
+}
+
+@-webkit-keyframes shimmer {
+  from {
+    -webkit-mask-position: 150%;
+  }
+  to {
+    -webkit-mask-position: -50%;
+  }
+}

@@ -3,7 +3,13 @@
 import { ArrowDown, Download, Mail, Github, Linkedin, MapPin, ExternalLink } from 'lucide-react'
 import Image from 'next/image'
 import { memo, useEffect, useState } from 'react'
+import { SVGProps } from 'react';
 
+const XIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" {...props}>
+    <path d="M453.2 112L523.8 112L369.6 288.2L551 528L409 528L297.7 382.6L170.5 528L99.8 528L264.7 339.5L90.8 112L236.4 112L336.9 244.9L453.2 112zM428.4 485.8L467.5 485.8L215.1 152L173.1 152L428.4 485.8z" />
+  </svg>
+);
 function HeroSection() {
   const titles = ['Cloud', 'DevOps']
   const [displayText, setDisplayText] = useState('')
@@ -83,7 +89,7 @@ function HeroSection() {
 
         {/* Name */}
         <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-4">
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-indigo-800 to-purple-800 dark:from-white dark:via-indigo-200 dark:to-purple-200">
+          <span className="shimmer bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-indigo-800 to-purple-800 dark:from-white dark:via-indigo-200 dark:to-purple-200">
             Mohamed Gomaa
           </span>
         </h1>
@@ -111,8 +117,9 @@ function HeroSection() {
 
         {/* CTA Buttons with Enhanced Effects */}
         <div className="flex flex-wrap justify-center gap-4 mb-10">
-          <button
-            className="relative group px-8 py-4 rounded-full overflow-hidden"
+          <a
+            href="mailto:mo7amed.gom3a.7moda@gmail.com"
+            className="relative group px-8 py-4 rounded-full overflow-hidden cursor-pointer"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 transition-all duration-300 group-hover:scale-110" />
             <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 blur-xl opacity-50 transition-opacity" />
@@ -120,14 +127,16 @@ function HeroSection() {
               <Mail className="w-5 h-5" />
               Get in Touch
             </span>
-          </button>
+          </a>
           
-          <button
+          <a
+            href="/resume.pdf"
+            download="Mohamed_Gomaa_Resume.pdf"
             className="group px-8 py-4 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 font-semibold shadow-lg flex items-center gap-2 hover:bg-white dark:hover:bg-gray-800 hover:border-indigo-300 dark:hover:border-indigo-500 hover:text-indigo-700 dark:hover:text-indigo-300 transition-all"
           >
             <Download className="w-5 h-5" />
             Download CV
-          </button>
+          </a>
         </div>
 
         {/* Social Links with Enhanced Hover Effects */}
@@ -135,7 +144,7 @@ function HeroSection() {
           {[
             { Icon: Github, href: 'https://github.com/mo7amedgom3a', label: 'GitHub', color: 'hover:text-gray-900 dark:hover:text-white hover:border-gray-400 dark:hover:border-gray-500' },
             { Icon: Linkedin, href: 'https://www.linkedin.com/in/mohamed-gomaa-mohamed/', label: 'LinkedIn', color: 'hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-300 dark:hover:border-blue-500' },
-            { Icon: ExternalLink, href: 'https://mohamedgomaa.vercel.app', label: 'Portfolio', color: 'hover:text-indigo-600 dark:hover:text-indigo-400 hover:border-indigo-300 dark:hover:border-indigo-500' },
+            { Icon: XIcon, href: 'https://x.com/Mo7amed_Gom3a__', label: 'X', color: 'hover:text-black dark:hover:text-white hover:border-gray-400 dark:hover:border-gray-500' },
           ].map(({ Icon, href, label, color }, index) => (
             <a
               key={label}
