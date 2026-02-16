@@ -89,7 +89,7 @@ function HeroSection() {
 
         {/* Name */}
         <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-4">
-          <span className="shimmer bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-indigo-800 to-purple-800 dark:from-white dark:via-indigo-200 dark:to-purple-200">
+          <span className=" bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-red-300 ">
             Mohamed Gomaa
           </span>
         </h1>
