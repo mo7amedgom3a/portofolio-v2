@@ -84,7 +84,7 @@ const skillCategories = [
     bgColor: 'from-pink-50 to-rose-50',
     darkBgColor: 'dark:from-pink-950/30 dark:to-rose-950/30',
     skills: [
-      { name: 'CloudWatch', level: 90, icon: '/Technology/AWS.svg' },
+      { name: 'DataDog', level: 90, icon: '/Technology/datadog.svg' },
       { name: 'Prometheus', level: 85, icon: '/Technology/Prometheus.svg' },
       { name: 'Grafana', level: 82, icon: '/Technology/Grafana.svg' },
       { name: 'ArgoCD', level: 80, icon: '/Technology/ArgoCD.svg' },
