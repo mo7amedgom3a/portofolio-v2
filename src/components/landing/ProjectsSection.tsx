@@ -32,7 +32,7 @@ const projects = [
     tags: ['Docker', 'Kubernetes', 'Terraform', 'Ansible'],
     color: 'from-indigo-500 to-purple-500',
     link: '#',
-    github: '#',
+    github: 'https://github.com/mo7amedgom3a/Easy-Deploy',
   },
   {
     title: "Programmer's Social Hub",
@@ -97,24 +97,32 @@ function ProjectsSection() {
                   <motion.div
                     initial={{ opacity: 0 }}
                     whileHover={{ opacity: 1 }}
-                    className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex items-end justify-center pb-6 gap-4"
+                    className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent hidden md:flex items-end justify-center pb-6 gap-4"
                   >
-                    <motion.a
-                      href={project.link}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-colors"
-                    >
-                      <ExternalLink className="w-5 h-5" />
-                    </motion.a>
-                    <motion.a
-                      href={project.github}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-colors"
-                    >
-                      <Github className="w-5 h-5" />
-                    </motion.a>
+                    {project.link !== '#' && (
+                      <motion.a
+                        href={project.link}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <ExternalLink className="w-5 h-5" />
+                      </motion.a>
+                    )}
+                    {project.github !== '#' && (
+                      <motion.a
+                        href={project.github}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/30 transition-colors"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Github className="w-5 h-5" />
+                      </motion.a>
+                    )}
                   </motion.div>
                 </div>
 
@@ -135,6 +143,32 @@ function ProjectsSection() {
                         {tag}
                       </span>
                     ))}
+                  </div>
+
+                  {/* Mobile Links */}
+                  <div className="flex md:hidden items-center gap-4 mt-4">
+                    {project.link && project.link !== '#' && (
+                      <a
+                        href={project.link}
+                        className="inline-flex items-center gap-2 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                        <span>Live Demo</span>
+                      </a>
+                    )}
+                    {project.github && project.github !== '#' && (
+                      <a
+                        href={project.github}
+                        className="inline-flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Github className="w-4 h-4" />
+                        <span>GitHub</span>
+                      </a>
+                    )}
                   </div>
                 </div>
 
