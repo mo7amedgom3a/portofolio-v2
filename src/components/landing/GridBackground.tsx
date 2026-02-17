@@ -9,49 +9,23 @@ export const GridBackground = ({
   return (
     <div
       className={cn(
-        "fixed inset-0 z-0 h-full w-full bg-background",
+        "fixed inset-0 z-0 h-full w-full bg-white dark:bg-black",
         className,
       )}
       {...props}
     >
-      <div className="absolute inset-0 z-0 h-full w-full bg-gradient-to-b from-background to-transparent" />
-      <MovingGrid />
+      <div
+        className={cn(
+          "absolute inset-0",
+          "[background-size:40px_40px]",
+          "[background-image:linear-gradient(to_right,#e4e4e7_1px,transparent_1px),linear-gradient(to_bottom,#e4e4e7_1px,transparent_1px)]",
+          "dark:[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)]",
+        )}
+      />
+      {/* Radial gradient for the container to give a faded look */}
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black"></div>
     </div>
   );
 };
 
-const MovingGrid = () => {
-  return (
-    <div className="absolute inset-0 z-0 h-full w-full overflow-hidden">
-      <div
-        className={cn(
-          "absolute inset-0 z-0 h-full w-full animate-[fade-in_2s_ease-in-out]",
-          "[--grid-color:theme(colors.gray.100)] dark:[--grid-color:theme(colors.gray.900)]",
-          "[background-image:linear-gradient(to_right,var(--grid-color)_1px,transparent_1px),linear-gradient(to_bottom,var(--grid-color)_1px,transparent_1px)]",
-          "bg-[size:20px_20px]",
-        )}
-      ></div>
-      <div className="absolute inset-0 z-0 h-full w-full animate-[fade-in_2s_ease-in-out_1s]">
-        <div
-          className={cn(
-            "h-full w-full animate-[move-horizontal_40s_linear_infinite]",
-            "[--grid-color:theme(colors.purple.500/10%)] dark:[--grid-color:theme(colors.purple.500/20%)]",
-            "[background-image:linear-gradient(to_right,var(--grid-color)_1px,transparent_1px),linear-gradient(to_bottom,var(--grid-color)_1px,transparent_1px)]",
-            "bg-[size:100px_100px]",
-          )}
-        />
-      </div>
-      <div className="absolute inset-0 z-0 h-full w-full animate-[fade-in_2s_ease-in-out_2s]">
-        <div
-          className={cn(
-            "h-full w-full animate-[move-vertical_50s_linear_infinite]",
-            "[--grid-color:theme(colors.indigo.500/10%)] dark:[--grid-color:theme(colors.indigo.500/20%)]",
-            "[background-image:linear-gradient(to_right,var(--grid-color)_1px,transparent_1px),linear-gradient(to_bottom,var(--grid-color)_1px,transparent_1px)]",
-            "bg-[size:80px_80px]",
-          )}
-        />
-      </div>
-    </div>
-  );
-};
 
